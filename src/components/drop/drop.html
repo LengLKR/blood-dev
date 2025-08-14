@@ -1,0 +1,91 @@
+<div
+  class="d-flex justify-content-around p-3"
+  style="background-color: antiquewhite"
+>
+  <div class="dropdown">
+    <button
+      class="btn btn-secondary dropdown-toggle"
+      type="button"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      กรุ๊ปเลือดพ่อ {{ parentDad }}
+    </button>
+    <ul class="dropdown-menu dropdown-menu-dark">
+      <li>
+        <a class="dropdown-item active" href="#" (click)="selectDad('A')">A</a>
+      </li>
+      <li><a class="dropdown-item" href="#" (click)="selectDad('B')">B</a></li>
+      <li>
+        <a class="dropdown-item" href="#" (click)="selectDad('AB')">AB</a>
+      </li>
+      <li><a class="dropdown-item" href="#" (click)="selectDad('O')">O</a></li>
+    </ul>
+  </div>
+
+  <div class="dropdown">
+    <button
+      class="btn btn-secondary dropdown-toggle"
+      type="button"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      กรุ๊ปเลือดแม่ {{ parentMon }}
+    </button>
+    <ul class="dropdown-menu dropdown-menu-dark">
+      <li>
+        <a class="dropdown-item active" href="#" (click)="selectMon('A')">A</a>
+      </li>
+      <li><a class="dropdown-item" href="#" (click)="selectMon('B')">B</a></li>
+      <li>
+        <a class="dropdown-item" href="#" (click)="selectMon('AB')">AB</a>
+      </li>
+      <li><a class="dropdown-item" href="#" (click)="selectMon('O')">O</a></li>
+    </ul>
+  </div>
+
+  <div class="dropdown">
+    <button
+      class="btn btn-secondary dropdown-toggle"
+      type="button"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      Rf positive {{ parentPositive }}
+    </button>
+    <ul class="dropdown-menu dropdown-menu-dark">
+      <li>
+        <a class="dropdown-item active" href="#" (click)="selectPositive('+')"
+          >+</a
+        >
+      </li>
+      <li>
+        <a class="dropdown-item" href="#" (click)="selectPositive('-')">-</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="dropdown">
+    <button
+      class="btn btn-secondary dropdown-toggle"
+      type="button"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      Rf netgative {{ parentNetgative }}
+    </button>
+    <ul class="dropdown-menu dropdown-menu-dark">
+      <li>
+        <a class="dropdown-item active" href="#" (click)="selectNetgative('+')"
+          >+</a
+        >
+      </li>
+      <li>
+        <a class="dropdown-item" href="#" (click)="selectNetgative('-')">-</a>
+      </li>
+    </ul>
+  </div>
+  <button type="button" class="btn btn-success" (click)="summit()">
+    Success
+  </button>
+</div>
