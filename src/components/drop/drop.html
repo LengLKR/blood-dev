@@ -1,91 +1,92 @@
-<div
-  class="d-flex justify-content-around p-3"
-  style="background-color: antiquewhite"
->
-  <div class="dropdown">
-    <button
-      class="btn btn-secondary dropdown-toggle"
-      type="button"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-    >
-      กรุ๊ปเลือดพ่อ {{ parentDad }}
-    </button>
-    <ul class="dropdown-menu dropdown-menu-dark">
-      <li>
-        <a class="dropdown-item active" href="#" (click)="selectDad('A')">A</a>
-      </li>
-      <li><a class="dropdown-item" href="#" (click)="selectDad('B')">B</a></li>
-      <li>
-        <a class="dropdown-item" href="#" (click)="selectDad('AB')">AB</a>
-      </li>
-      <li><a class="dropdown-item" href="#" (click)="selectDad('O')">O</a></li>
-    </ul>
+<div class="container">
+  <form [formGroup]="bloodGroupForm">
+    <div class="row text-center p-3">
+      <h2 class="fw-bold" style="">Blood Group Calculator</h2>
+      <div class="col-6">
+        <div class="fw-bold">
+          <label
+            for="fatherABO"
+            class="text-lg-end border border-primary-subtle border border-3"
+            >father's ABO Group</label
+          >
+        </div>
+        <div class="d-flex flex-row-reverse mt-2 mb-4">
+          <select
+            formControlName="fatherABO"
+            id="fatherABO"
+            class="ms-2"
+            style="width: 95px"
+          >
+            <option *ngFor="let opt1 of options" [value]="opt1.phenotype">
+              {{ opt1.phenotype }}
+            </option>
+          </select>
+        </div>
+        <div>
+          <label
+            for="motherABO"
+            class="fw-bold border border-primary-subtle border border-3"
+            >Mother's ABO Group</label
+          >
+        </div>
+        <div class="d-flex flex-row-reverse mt-2">
+          <select
+            formControlName="motherABO"
+            id="motherABO"
+            style="width: 95px"
+          >
+            <option *ngFor="let opt of options" [value]="opt.phenotype">
+              {{ opt.phenotype }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-6">
+        <div>
+          <label
+            for="fatherRh"
+            class="fw-bold border border-primary-subtle border border-3"
+          >
+            Father's Rh Factor</label
+          >
+        </div>
+        <div class="d-flex flex-row mt-2 mb-4">
+          <select formControlName="fatherRh" id="fatherRh" style="width: 95px">
+            <option *ngFor="let opt2 of Rh" [value]="opt2.name2">
+              {{ opt2.name2 }}
+            </option>
+          </select>
+        </div>
+        <div>
+          <label
+            for="motherRh"
+            class="fw-bold border border-primary-subtle border border-3"
+            >mother's Rh Factor</label
+          >
+        </div>
+        <div class="d-flex flex-row mt-2">
+          <select formControlName="motherRh" id="motherRh" style="width: 95px">
+            <option *ngFor="let opt3 of Rh" [value]="opt3.name2">
+              {{ opt3.name2 }}
+            </option>
+          </select>
+          @if (bloodGroupForm.get('motherRh')?.invalid &&
+          bloodGroupForm.get('motherRh')?.touched) {
+          <div class="text-danger">Please input value</div>
+          }
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <button type="submit" (click)="submit()" style="width: 120px">
+        submit
+      </button>
+      <button type="submit" (click)="resetFrom()" style="width: 120px">
+        resetFrom
+      </button>
+    </div>
+  </form>
+  <div class="text-center mt-4 fw-bold">
+    {{ showGenotype }}
   </div>
-
-  <div class="dropdown">
-    <button
-      class="btn btn-secondary dropdown-toggle"
-      type="button"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-    >
-      กรุ๊ปเลือดแม่ {{ parentMon }}
-    </button>
-    <ul class="dropdown-menu dropdown-menu-dark">
-      <li>
-        <a class="dropdown-item active" href="#" (click)="selectMon('A')">A</a>
-      </li>
-      <li><a class="dropdown-item" href="#" (click)="selectMon('B')">B</a></li>
-      <li>
-        <a class="dropdown-item" href="#" (click)="selectMon('AB')">AB</a>
-      </li>
-      <li><a class="dropdown-item" href="#" (click)="selectMon('O')">O</a></li>
-    </ul>
-  </div>
-
-  <div class="dropdown">
-    <button
-      class="btn btn-secondary dropdown-toggle"
-      type="button"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-    >
-      Rf positive {{ parentPositive }}
-    </button>
-    <ul class="dropdown-menu dropdown-menu-dark">
-      <li>
-        <a class="dropdown-item active" href="#" (click)="selectPositive('+')"
-          >+</a
-        >
-      </li>
-      <li>
-        <a class="dropdown-item" href="#" (click)="selectPositive('-')">-</a>
-      </li>
-    </ul>
-  </div>
-
-  <div class="dropdown">
-    <button
-      class="btn btn-secondary dropdown-toggle"
-      type="button"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-    >
-      Rf netgative {{ parentNetgative }}
-    </button>
-    <ul class="dropdown-menu dropdown-menu-dark">
-      <li>
-        <a class="dropdown-item active" href="#" (click)="selectNetgative('+')"
-          >+</a
-        >
-      </li>
-      <li>
-        <a class="dropdown-item" href="#" (click)="selectNetgative('-')">-</a>
-      </li>
-    </ul>
-  </div>
-  <button type="button" class="btn btn-success" (click)="summit()">
-    Success
-  </button>
 </div>
