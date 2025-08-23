@@ -1,12 +1,10 @@
 <div class="container">
   <form [formGroup]="bloodGroupForm">
     <div class="row text-center p-3">
-      <h2 class="fw-bold" style="">Blood Group Calculator</h2>
+      <h2 class="fw-bold bg-black text-light">Blood Group Calculator</h2>
       <div class="col-6">
-        <div class="fw-bold">
-          <label
-            for="fatherABO"
-            class="text-lg-end border border-primary-subtle border border-3"
+        <div class="fw-bold w-100" style="width: 120px">
+          <label for="fatherABO" class="w-100 border border-black border-3 fs-5"
             >father's ABO Group</label
           >
         </div>
@@ -21,15 +19,19 @@
               {{ opt1.phenotype }}
             </option>
           </select>
+          @if (bloodGroupForm.get('fatherABO')?.invalid &&
+          bloodGroupForm.get('fatherABO')?.touched) {
+          <div class="text-danger">Please input value</div>
+          }
         </div>
-        <div>
+        <div class="fw-bold w-100" style="width: 120px">
           <label
             for="motherABO"
-            class="fw-bold border border-primary-subtle border border-3"
+            class="w-100 border border border-black border border-3 fs-5"
             >Mother's ABO Group</label
           >
         </div>
-        <div class="d-flex flex-row-reverse mt-2">
+        <div class="d-flex flex-row-reverse mt-2 w-100" style="width: 120px">
           <select
             formControlName="motherABO"
             id="motherABO"
@@ -39,13 +41,17 @@
               {{ opt.phenotype }}
             </option>
           </select>
+          @if(bloodGroupForm.get('motherABO')?.invalid &&
+          bloodGroupForm.get('motherABO')?.touched){
+          <div class="text-danger">Please input value</div>
+          }
         </div>
       </div>
       <div class="col-6">
-        <div>
+        <div class="fw-bold w-100" style="width: 120px">
           <label
             for="fatherRh"
-            class="fw-bold border border-primary-subtle border border-3"
+            class="w-100 border border border-black border border-3 fs-5"
           >
             Father's Rh Factor</label
           >
@@ -56,11 +62,15 @@
               {{ opt2.name2 }}
             </option>
           </select>
+          @if (bloodGroupForm.get('fatherRh')?.invalid &&
+          bloodGroupForm.get('fatherRh')?.touched) {
+          <div class="text-danger">Please input value</div>
+          }
         </div>
-        <div>
+        <div class="fw-bold w-100" style="width: 120px">
           <label
             for="motherRh"
-            class="fw-bold border border-primary-subtle border border-3"
+            class="w-100 border border border-black border border-3 fs-5"
             >mother's Rh Factor</label
           >
         </div>
@@ -78,10 +88,22 @@
       </div>
     </div>
     <div class="text-center">
-      <button type="submit" (click)="submit()" style="width: 120px">
+      <button
+        class="btn text-light fw-bold"
+        type="submit"
+        (click)="submit()"
+        style="width: 120px"
+        style="background-color: black"
+      >
         submit
       </button>
-      <button type="submit" (click)="resetFrom()" style="width: 120px">
+      <button
+        class="btn text-light ms-2 fw-bold"
+        type="submit"
+        (click)="resetFrom()"
+        style="width: 120px"
+        style="background-color: black"
+      >
         resetFrom
       </button>
     </div>

@@ -158,7 +158,14 @@ export class Drop implements OnInit {
       console.log('mother : ', mother, 'mothergenotype :', mothergenotype);
       console.log('motherRh : ', motherRh);
     } else {
-      Swal.fire('กรุณาเลือก ABO และ Rh ของพ่อและแม่ก่อน');
+      this.bloodGroupForm.markAllAsTouched();
+      // Swal.fire('กรุณาเลือก ABO และ Rh ของพ่อและแม่ก่อน');
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'กรุณาเลือก ABO และ Rh ของพ่อและแม่ก่อน',
+        footer: '<a href="#">Why do I have this issue?</a>',
+      });
     }
   }
 
