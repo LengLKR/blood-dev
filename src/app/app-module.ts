@@ -12,14 +12,15 @@ import {
 import { AppRoutingModule } from './app-routing-module';
 import { App } from '../components/app/app';
 import { Drop } from '../components/drop/drop';
-import { Drown } from '../components/drown/drown';
+
 import { Showresulits } from '../components/showresulits/showresulits';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomePage } from '../components/home-page/home-page';
 import { Header } from '../components/header/header';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { Tree } from '../components/tree/tree';
 @NgModule({
-  declarations: [App, Drop, Drown, Showresulits, HomePage, Header],
+  declarations: [App, Drop, Showresulits, HomePage, Header, Tree],
   imports: [
     BrowserModule,
     AppRoutingModule,

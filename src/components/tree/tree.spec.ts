@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Drown } from './drown';
+import { Tree } from './tree';
 
-describe('Drown', () => {
-  let component: Drown;
-  let fixture: ComponentFixture<Drown>;
+describe('Tree', () => {
+  let component: Tree;
+  let fixture: ComponentFixture<Tree>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [Drown]
+      declarations: [Tree]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Drown);
+    fixture = TestBed.createComponent(Tree);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

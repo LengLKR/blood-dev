@@ -1,0 +1,67 @@
+.tree-container {
+  position: relative;
+}
+
+.tree-parents {
+  position: relative;
+}
+
+.parent-box {
+  padding: 10px 15px;
+  background-color: #4cb4cb;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  position: relative;
+}
+
+.tree-children {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  position: relative;
+}
+
+.child-box {
+  padding: 8px 12px;
+  background-color: #e0f7fa;
+  border-radius: 5px;
+  text-align: center;
+  position: relative;
+}
+
+/* Lines from parents to children */
+.tree-children::before {
+  content: "";
+  position: absolute;
+  top: -40px; /* height from children to parents */
+  left: 50%;
+  width: 2px;
+  height: 40px;
+  background: black;
+  transform: translateX(-50%);
+}
+
+.child-box::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  width: 2px;
+  height: 40px;
+  background: black;
+  transform: translateX(-50%);
+}
+
+.tree-parents::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  height: 40px;
+  background: black;
+  transform: translateX(-50%);
+}

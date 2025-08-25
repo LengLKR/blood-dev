@@ -108,7 +108,31 @@
       </button>
     </div>
   </form>
-  <div class="text-center mt-4 fw-bold">
-    {{ showGenotype }}
+  <div
+    *ngIf="exampleGeno"
+    class="tree-container border p-3 rounded bg-light mt-3"
+  >
+    <h4 class="text-center">Blood Group Tree</h4>
+
+    <div class="tree-parents d-flex justify-content-center mb-3">
+      <div class="parent-box me-3">
+        <strong>Father:</strong> {{ exampleGeno.fatherABO }}
+        {{ exampleGeno.fatherRh }}
+      </div>
+      <div class="parent-box ms-3">
+        <strong>Mother:</strong> {{ exampleGeno.motherABO }}
+        {{ exampleGeno.motherRh }}
+      </div>
+    </div>
+
+    <div class="tree-children d-flex justify-content-center flex-wrap">
+      <div *ngFor="let node of childTree" class="child-box">
+        <strong>{{ node.child }}</strong>
+        <div class="text-muted small">
+          (Father: {{ node.fromFather }}, Mother: {{ node.fromMother }})<br />
+          Major: {{ node.majorFrom }}
+        </div>
+      </div>
+    </div>
   </div>
 </div>
