@@ -50,7 +50,7 @@ export class Drop implements OnInit {
 
   Rh: { name2: string }[] = [{ name2: '+' }, { name2: '-' }];
 
-  submit() {
+  Submitchange() {
     if (this.bloodGroupForm.valid) {
       const father = this.bloodGroupForm.value.fatherABO;
       const fatherRh = this.bloodGroupForm.value.fatherRh;
