@@ -144,7 +144,7 @@ export class Drop implements OnInit {
     }
   }
 
-  resetFrom() {
+  resetFromB() {
     this.bloodGroupForm.reset();
     this.showGenotype = null;
   }
